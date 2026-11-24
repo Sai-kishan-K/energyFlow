@@ -1,0 +1,110 @@
+
+{
+  "product": "EnergyFlow 360",
+  "version": "1.0.0",
+  "product_goal": "Provide reliable validation of smart-meter readings before billing.",
+  "release": "MVP-1",
+  "stories": [
+    {
+      "id": "US-001",
+      "epic": "EPIC-001",
+      "title": "Validate meter-reading JSON",
+      "persona": "Billing Agent",
+      "goal": "validate incoming meter-reading data",
+      "benefit": "prevent malformed data from entering billing",
+      "priority": "Must",
+      "story_points": 3,
+      "status": "Done",
+      "sprint": 0,
+      "acceptance_criteria": [
+        "Valid JSON readings pass schema validation",
+        "Missing mandatory fields are rejected",
+        "Invalid field types are rejected"
+      ]
+    },
+    {
+      "id": "US-002",
+      "epic": "EPIC-001",
+      "title": "Validate timestamp format",
+      "persona": "Billing Agent",
+      "goal": "reject invalid reading timestamps",
+      "benefit": "ensure reliable consumption chronology",
+      "priority": "Must",
+      "story_points": 2,
+      "status": "Done",
+      "sprint": 0,
+      "acceptance_criteria": [
+        "Valid date-time values are accepted",
+        "Invalid date-time values are rejected"
+      ]
+    },
+    {
+      "id": "US-003",
+      "epic": "EPIC-001",
+      "title": "Provide actionable validation errors",
+      "persona": "Billing Agent",
+      "goal": "understand why a reading was rejected",
+      "benefit": "investigate incorrect readings faster",
+      "priority": "Must",
+      "story_points": 3,
+      "status": "To Do",
+      "sprint": 1,
+      "acceptance_criteria": [
+        "Each rejected reading includes an error reason",
+        "Errors identify the affected field",
+        "Valid readings do not generate validation errors"
+      ]
+    },
+    {
+      "id": "US-004",
+      "epic": "EPIC-002",
+      "title": "Detect duplicate meter events",
+      "persona": "Billing Agent",
+      "goal": "identify repeated event IDs",
+      "benefit": "avoid counting energy consumption twice",
+      "priority": "Must",
+      "story_points": 5,
+      "status": "To Do",
+      "sprint": 1,
+      "acceptance_criteria": [
+        "The first occurrence of an event ID is accepted",
+        "Repeated event IDs are identified as duplicates",
+        "Duplicate events do not increase consumption totals"
+      ]
+    },
+    {
+      "id": "US-005",
+      "epic": "EPIC-003",
+      "title": "View rejected readings",
+      "persona": "Billing Agent",
+      "goal": "see invalid meter readings in one place",
+      "benefit": "reduce manual investigation work",
+      "priority": "Should",
+      "story_points": 5,
+      "status": "To Do",
+      "sprint": null,
+      "acceptance_criteria": [
+        "Rejected readings are displayed in a list",
+        "Each record shows meter ID and error reason",
+        "Agents can filter results by meter ID"
+      ]
+    },
+    {
+      "id": "US-006",
+      "epic": "EPIC-004",
+      "title": "Calculate electricity charges",
+      "persona": "Billing Manager",
+      "goal": "calculate charges from validated readings",
+      "benefit": "reduce manual billing calculations",
+      "priority": "Won't",
+      "story_points": 8,
+      "status": "To Do",
+      "sprint": null,
+      "acceptance_criteria": [
+        "Only validated readings are used",
+        "Charges are calculated using configured tariffs",
+        "Billing results are displayed with a breakdown"
+      ]
+    }
+  ]
+}
